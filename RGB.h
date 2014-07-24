@@ -1,0 +1,32 @@
+/* Library for 240*320 pixel display TFT based on ILI9341 LCD Controller
+*
+* Copyright (c) 2014 Anisse MOHAMED - Hakim ELGARRABI
+*/ 
+
+#ifndef _RGB_H_
+#define _RGB_H_
+
+enum RGB_Code{
+	RGB_BLACK,
+	RGB_WHITE,
+	RGB_GRAY,
+	RGB_RED,
+	RGB_ORANGE,
+	RGB_YELLOW,
+	RGB_GREEN,
+	RGB_BLUE,
+	RGB_PURPLE,
+}
+const uint16_t RGB_Color[][3] = {
+	{0x00,0x00,0x00},
+	{0xFF,0xFF,0xFF},
+	{0xBE,0xBE,0xBE},
+	{0xFF,0x00,0x00},
+	{0xFF,0xA5,0x00},
+	{0xFF,0xFF,0x00},
+	{0x00,0xFF,0x00},
+	{0x00,0x00,0xFF},
+	{0xA0,0x20,0xF0},
+};
+
+#endif

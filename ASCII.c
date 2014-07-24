@@ -9,19 +9,19 @@ ASCII_FontSizeDef ASCII_FS_7x10 =
 {
 	7,
 	10,
-	ASCII_FontSize_7x10
+	(uint16_t*) ASCII_FontSize_7x10
 };
 
 ASCII_FontSizeDef ASCII_FS_11x18 = 
 {
 	11,
 	18,
-	ASCII_FontSize_11x18
+	(uint16_t*) ASCII_FontSize_11x18
 };
 
 ASCII_FontSizeDef ASCII_FS_16x26 = 
 {
 	16,
 	25,
-	ASCII_FontSize_16x26
+	(uint16_t*) ASCII_FontSize_16x26
 };

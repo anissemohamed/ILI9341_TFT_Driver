@@ -6,21 +6,6 @@
 #ifndef _ILI9341_H_
 #define _ILI9341_H_
 
-/* Colors : 16 bits format */
-#define ILI9341_COLOR_WHITE			0xFFFF
-#define ILI9341_COLOR_BLACK			0x0000
-#define ILI9341_COLOR_RED			0xF800
-#define ILI9341_COLOR_GREEN			0x07E0
-#define ILI9341_COLOR_GREEN2		0xB723
-#define ILI9341_COLOR_BLUE			0x001F
-#define ILI9341_COLOR_BLUE2			0x051D
-#define ILI9341_COLOR_YELLOW		0xFFE0
-#define ILI9341_COLOR_ORANGE		0xFBE4
-#define ILI9341_COLOR_CYAN			0x07FF
-#define ILI9341_COLOR_MAGENTA		0xA254
-#define ILI9341_COLOR_GRAY			0x7BEF 
-#define ILI9341_COLOR_BROWN			0xBBCA
-
 /* Regulative command set */
 #define ILI9341_NO_OPERATION				0x00
 #define ILI9341_SOFT_RESET					0x01
@@ -95,16 +80,24 @@
 #define ILI9341_NV_MEM_PROTECT_KEY			0xD1
 #define ILI9341_NV_MEM_ST_READ				0xD2
 
-void ILI9341_SendCommand(uint8_t parCmd);
-void ILI9341_SendParameter(uint8_t parData);
+extern ASCII_FontSizeDef ASCII_FS_7x10;
+extern ASCII_FontSizeDef ASCII_FS_11x18;
+extern ASCII_FontSizeDef ASCII_FS_16x26;
 
+/* Init functions */
 void ILI9341_Init(void);
+/* Interface functions */
+void ILI9341_SendCommand(uint8_t parCmd);
+void ILI9341_SendData(uint8_t parData);
+/* Control functions */
+void ILI9341_SetCursorPosition(uint16_t parX0, uint16_t parY0, uint16_t parX1, uint16_t parY1);
+/* Draw functions */
+void ILI9341_DrawPixel(uint16_t parX, uint16_t parY, uint8_t parRGBColor[3]);
+void ILI9341_DrawLine(uint16_t parX0, uint16_t parY0, uint16_t parX1, uint16_t parY1, uint8_t parRGBColor[3]);
+void ILI9341_DrawRectangle(uint16_t parX0, uint16_t parY0, uint16_t parX1, uint16_t parY1,uint8_t parRGBColor[3], bool parFilled);
+void ILI9341_DrawCircle(uint16_t parX, uint16_t parY, uint16_t parRadius, uint8_t parRGBColor[3], bool parFilled);
+/* Print functions */
+void ILI9341_Putc(uint8_t parChar, uint8_t parRGBColor[3]);
+void ILI9341_Puts(uint8_t *parString, uint8_t parRGBColor[3]);
 
-void ILI9341_DrawPixel(uint16_t parX, uint16_t parY, uint16_t parColor);
-void ILI9341_DrawLine(uint16_t parX0, uint16_t parY0, uint16_t parX1, uint16_t parY1, uint16_t parColor);
-void ILI9341_DrawRectangle(uint16_t parX0, uint16_t parY0, uint16_t parX1, uint16_t parY1,uint16_t parColor, bool parFilled);
-void ILI9341_DrawCircle(uint16_t parX, uint16_t parY, uint16_t parRadius, uint16_t parColor, bool parFilled);
-
-void ILI9341_Putc(uint8_t parChar, uint16_t parColor);
-void ILI9341_Puts(uint8_t *parString, uint16_t parColor);
 #endif
